@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  searchRadius: 100
+  searchRadius: 50
   jumpForce: 20
 --- !u!135 &2986524397442530847
 SphereCollider:

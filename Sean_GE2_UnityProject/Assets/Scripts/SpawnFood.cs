@@ -14,7 +14,7 @@ public class SpawnFood : MonoBehaviour
 
     private void Start()
     {
-        if (transform.childCount < maxCount)
+        if (transform.childCount < 15)
         {
             float randomX = Random.Range(min, max);
             float randomZ = Random.Range(min, max);

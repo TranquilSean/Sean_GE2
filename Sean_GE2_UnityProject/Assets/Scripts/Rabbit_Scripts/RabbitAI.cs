@@ -35,15 +35,20 @@ public class RabbitAI : MonoBehaviour
                 Flee();
                 return;
             }
+            else
+            {
+                // if there's a targetFood, move towards it
+                if (targetFood != null)
+                {
+                    moveSpeed = 5;
+                    Vector3 direction = targetFood.transform.position - transform.position;
+                    direction.y = 0;
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
+                }
+            }
+
         }
-        // if there's a targetFood, move towards it
-        if (targetFood != null)
-        {
-            moveSpeed = 5;
-            Vector3 direction = targetFood.transform.position - transform.position;
-            direction.y = 0;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
-        }
+
 
         if (isGrounded)
         {
@@ -96,7 +101,7 @@ public class RabbitAI : MonoBehaviour
 
     public void Flee()
     {
-        moveSpeed = 5;
+        moveSpeed = 6;
         GameObject[] predators = GameObject.FindGameObjectsWithTag("Fox");
 
         foreach (GameObject predator in predators)
